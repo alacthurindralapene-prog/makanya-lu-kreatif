@@ -1,263 +1,155 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <title>🌟 GEMBULVERSE - 15 Cerita Gila! 🌟</title>
+    <title>📚 GEMBULVERSE ANAK - 15 Cerita Lengkap! 📚</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { 
-            font-family: 'Comic Sans MS', cursive; 
-            background: linear-gradient(-45deg, #ff9a9e, #fecfef, #fecfef, #fad0c4);
-            background-size: 600% 600%;
-            animation: gradientBG 20s ease infinite;
+            font-family: 'Comic Sans MS', 'Chalkboard SE', cursive; 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
-            padding: 20px;
+            padding: 15px;
+            color: #333;
+            line-height: 1.6;
         }
-        @keyframes gradientBG { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+        .container { max-width: 1200px; margin: 0 auto; }
         
-        .header { text-align: center; margin: 30px 0; }
-        .logo { font-size: 5em; animation: shake 1s infinite; }
-        @keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-10px); } 75% { transform: translateX(10px); } }
-        h1 { font-size: 3em; color: #d63031; text-shadow: 4px 4px #fff; margin-bottom: 10px; }
-        .subtitle { font-size: 1.5em; color: #00b894; }
+        /* HEADER */
+        .book-header { 
+            text-align: center; 
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); 
+            padding: 40px 20px; 
+            border-radius: 30px; 
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            margin-bottom: 30px;
+            border: 8px solid #fff;
+        }
+        .logo { font-size: 5em; animation: wiggle 2s infinite; margin-bottom: 15px; }
+        @keyframes wiggle { 0%, 100% { transform: rotate(-5deg); } 25% { transform: rotate(5deg); } 50% { transform: rotate(0deg); } }
+        h1 { color: #e74c3c; font-size: 3em; margin: 15px 0; text-shadow: 3px 3px #fff; }
+        .tagline { color: #7f8c8d; font-size: 1.4em; margin-bottom: 10px; }
+        .instruction { background: rgba(255,255,255,0.8); padding: 15px; border-radius: 15px; font-size: 1.1em; }
 
+        /* LIST CERITA GRID */
         .story-grid { 
             display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-            gap: 20px; 
-            max-width: 1400px; 
-            margin: 0 auto;
-            padding: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+            gap: 25px; 
+            margin-bottom: 40px;
         }
         .story-card { 
-            background: rgba(255,255,255,0.95); 
+            background: white; 
             border-radius: 25px; 
-            padding: 25px; 
-            box-shadow: 0 15px 35px rgba(0,0,0,0.2); 
-            cursor: pointer; 
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            padding: 30px 20px; 
+            box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            border: 5px solid transparent;
             position: relative;
             overflow: hidden;
-            animation: cardFloat 3s ease-in-out infinite;
+            min-height: 280px;
         }
-        .story-card:nth-child(even) { animation-delay: 0.5s; }
-        @keyframes cardFloat { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-15px); } }
         .story-card:hover { 
-            transform: scale(1.08) rotate(3deg) !important; 
-            box-shadow: 0 25px 50px rgba(214,48,49,0.4);
-            background: linear-gradient(45deg, #ff7675, #fd79a8);
-            color: white;
+            transform: translateY(-15px) scale(1.03); 
+            box-shadow: 0 25px 50px rgba(231,76,60,0.4);
+            border-color: #e74c3c;
         }
-        .story-emoji { font-size: 5em; margin: 10px 0; }
-        .story-title { font-size: 1.6em; font-weight: bold; margin: 10px 0; }
-        .story-desc { font-size: 1.1em; line-height: 1.4; opacity: 0.9; }
-        .chaos-level { 
-            position: absolute; 
-            top: 10px; right: 10px; 
-            background: #00b894; 
-            color: white; 
-            padding: 5px 12px; 
-            border-radius: 20px; 
-            font-size: 0.9em; 
-            font-weight: bold;
-        }
-        
-        .custom-section { 
-            text-align: center; 
-            margin: 50px 0; 
-            padding: 30px; 
-            background: rgba(255,255,255,0.8); 
-            border-radius: 20px; 
-            max-width: 600px; 
-            margin: 50px auto;
-        }
-        .btn-custom { 
-            background: linear-gradient(45deg, #00b894, #00cec9); 
+        .story-icon { font-size: 5em; text-align: center; margin: 20px 0; }
+        .story-title { font-size: 1.8em; color: #2c3e50; font-weight: bold; margin-bottom: 15px; text-align: center; }
+        .story-preview { color: #7f8c8d; text-align: center; margin-bottom: 20px; font-size: 1.1em; }
+        .read-btn { 
+            background: linear-gradient(45deg, #e74c3c, #c0392b); 
             color: white; 
             border: none; 
-            padding: 20px 40px; 
-            font-size: 1.5em; 
-            border-radius: 50px; 
+            padding: 15px 30px; 
+            border-radius: 30px; 
+            font-size: 1.2em; 
             cursor: pointer; 
-            box-shadow: 0 10px 30px rgba(0,184,148,0.4);
-            transition: all 0.3s;
+            width: 100%;
             font-family: inherit;
             font-weight: bold;
+            box-shadow: 0 8px 20px rgba(231,76,60,0.3);
+            transition: all 0.3s;
         }
-        .btn-custom:hover { transform: scale(1.1); box-shadow: 0 15px 40px rgba(0,184,148,0.6); }
-        
-        @media (max-width: 768px) { .story-grid { grid-template-columns: 1fr; } .logo { font-size: 3em; } }
+        .read-btn:hover { background: linear-gradient(45deg, #c0392b, #a93226); transform: scale(1.05); }
+        .age { font-size: 0.9em; color: #27ae60; font-weight: bold; text-align: center; margin-top: 10px; }
+
+        /* MODAL FULL STORY */
+        .modal-backdrop { 
+            display: none; 
+            position: fixed; 
+            top: 0; left: 0; 
+            width: 100%; height: 100%; 
+            background: rgba(0,0,0,0.85); 
+            z-index: 9999; 
+            justify-content: center; 
+            align-items: center;
+            padding: 20px;
+        }
+        .modal-content { 
+            background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%); 
+            max-width: 700px; 
+            max-height: 85vh; 
+            border-radius: 25px; 
+            padding: 40px; 
+            overflow-y: auto; 
+            position: relative;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+            animation: modalPop 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            border: 8px solid #e74c3c;
+        }
+        @keyframes modalPop { 0% { transform: scale(0.3) rotate(-180deg); opacity: 0; } 100% { transform: scale(1) rotate(0deg); opacity: 1; } }
+        .modal-close { 
+            position: absolute; 
+            top: 20px; right: 25px; 
+            font-size: 2.5em; 
+            cursor: pointer; 
+            color: #e74c3c; 
+            width: 50px; height: 50px; 
+            display: flex; align-items: center; justify-content: center;
+            border-radius: 50%; 
+            transition: all 0.3s;
+        }
+        .modal-close:hover { background: #ffeaa7; transform: rotate(90deg); }
+        .full-title { font-size: 2.2em; color: #e74c3c; text-align: center; margin-bottom: 25px; }
+        .full-story { 
+            font-size: 1.4em; 
+            line-height: 1.9; 
+            color: #2c3e50; 
+            text-align: justify;
+            margin-bottom: 25px;
+        }
+        .story-moral { 
+            background: linear-gradient(135deg, #a8e6cf, #dcedc1); 
+            padding: 20px; 
+            border-radius: 15px; 
+            margin-top: 20px; 
+            font-size: 1.2em; 
+            font-style: italic;
+        }
+        .voice-btn, .back-btn { 
+            background: #3498db; 
+            color: white; 
+            border: none; 
+            padding: 15px 30px; 
+            border-radius: 25px; 
+            font-size: 1.1em; 
+            cursor: pointer; 
+            margin: 10px 10px 10px 0;
+            font-family: inherit;
+        }
+        .voice-btn:hover { background: #2980b9; }
+        .btn-group { text-align: center; margin-top: 25px; }
+
+        @media (max-width: 768px) { 
+            .story-grid { grid-template-columns: 1fr; } 
+            .full-story { font-size: 1.2em; } 
+        }
     </style>
 </head>
 <body>
-    <div class="header">
-        <div class="logo">👦🍡🌟</div>
-        <h1>GEMBULVERSE MEGA!</h1>
-        <div class="subtitle">15 Petualangan Paling Gila | Ketawa Sampe Kрам!</div>
-    </div>
-
-    <div class="story-grid">
-        <!-- CERITA 1 -->
-        <div class="story-card" onclick="playStory(1)">
-            <div class="chaos-level">CHAOS ⭐⭐⭐⭐⭐</div>
-            <div class="story-emoji">🐔💥</div>
-            <div class="story-title">Ayam Disco Raksasa</div>
-            <div class="story-desc">Cilok + telur misterius = ayam 🪩 raksasa! Rumah Bu Minto AMBRUK!</div>
-        </div>
-
-        <!-- CERITA 2 -->
-        <div class="story-card" onclick="playStory(2)">
-            <div class="chaos-level">CHAOS ⭐⭐⭐⭐</div>
-            <div class="story-emoji">🎓🕺</div>
-            <div class="story-title">Sekolah Jadi Kolplay</div>
-            <div class="story-desc">"1+1=CILOK!" Bu Guru goyang pinggul dangdut di kelas! 🚔 polisi salah alamat!</div>
-        </div>
-
-        <!-- CERITA 3 -->
-        <div class="story-card" onclick="playStory(3)">
-            <div class="chaos-level">CHAOS ⭐⭐⭐⭐⭐</div>
-            <div class="story-emoji">💕🍡🌊</div>
-            <div class="story-title">Cinta Cilok Banjir</div>
-            <div class="story-desc">Pacar Dara keluarin CILOK dari mulut! Kampung tenggelam manis pedes! 💖🌊</div>
-        </div>
-
-        <!-- CERITA 4 -->
-        <div class="story-card" onclick="playStory(4)">
-            <div class="chaos-level">CHAOS ⭐⭐⭐⭐⭐</div>
-            <div class="story-emoji">👽🪩</div>
-            <div class="story-title">Alien Dangdut</div>
-            <div class="story-desc">Telur dari UFO! Gembul raja Cilokland! Semua joget sama alien! 🛸👑</div>
-        </div>
-
-        <!-- CERITA 5 -->
-        <div class="story-card" onclick="playStory(5)">
-            <div class="chaos-level">CHAOS ⭐⭐⭐</div>
-            <div class="story-emoji">👻🍢</div>
-            <div class="story-title">Hantu Pencuri Cilok</div>
-            <div class="story-desc">Pocong curi cilok jam 3 pagi! Gembul: "Hantu joget dulu baru boleh!" 😂👻</div>
-        </div>
-
-        <!-- CERITA 6 -->
-        <div class="story-card" onclick="playStory(6)">
-            <div class="chaos-level">CHAOS ⭐⭐⭐⭐</div>
-            <div class="story-emoji">🐒🍌</div>
-            <div class="story-title">Monyet Mafia Pisang</div>
-            <div class="story-desc">Monyet gang curi pisang Bu RT! Gembul jadi detektif cilok! 🕵️‍♂️🐒</div>
-        </div>
-
-        <!-- CERITA 7 -->
-        <div class="story-card" onclick="playStory(7)">
-            <div class="chaos-level">CHAOS ⭐⭐⭐⭐⭐</div>
-            <div class="story-emoji">🚀🍡</div>
-            <div class="story-title">Cilok ke Luar Angkasa</div>
-            <div class="story-desc">Gembul lempar cilok → JADI ROKET! Mendarat di planet cilok! 🌌🚀</div>
-        </div>
-
-        <!-- CERITA 8 -->
-        <div class="story-card" onclick="playStory(8)">
-            <div class="chaos-level">CHAOS ⭐⭐⭐</div>
-            <div class="story-emoji">⚽🔥</div>
-            <div class="story-title">Gembul Jadi Messi</div>
-            <div class="story-desc">Cilok jadi bola api! Timnas Indonesia juara Piala Dunia! ⚽🏆</div>
-        </div>
-
-        <!-- CERITA 9 -->
-        <div class="story-card" onclick="playStory(9)">
-            <div class="chaos-level">CHAOS ⭐⭐⭐⭐</div>
-            <div class="story-emoji">🦖🍖</div>
-            <div class="story-title">Dino Lapar Cilok</div>
-            <div class="story-desc">T-Rex bangun dari kubur! Gembul kasih cilok ukuran gajah! 🦖🍡</div>
-        </div>
-
-        <!-- CERITA 10 -->
-        <div class="story-card" onclick="playStory(10)">
-            <div class="chaos-level">CHAOS ⭐⭐⭐⭐⭐</div>
-            <div class="story-emoji">🤖💃</div>
-            <div class="story-title">Robot Breakdance</div>
-            <div class="story-desc">Robot tetangga belajar joget dari Gembul! Kampung jadi battle dance! 🤖🕺</div>
-        </div>
-
-        <!-- CERITA 11 -->
-        <div class="story-card" onclick="playStory(11)">
-            <div class="chaos-level">CHAOS ⭐⭐⭐</div>
-            <div class="story-emoji">🦄🌈</div>
-            <div class="story-title">Unicorn Pelangi</div>
-            <div class="story-desc">Unicorn turun ke kampung! Tapi cuma mau cilok pelangi! 🦄🍡</div>
-        </div>
-
-        <!-- CERITA 12 -->
-        <div class="story-card" onclick="playStory(12)">
-            <div class="chaos-level">CHAOS ⭐⭐⭐⭐</div>
-            <div class="story-emoji">👑🍕</div>
-            <div class="story-title">Pizza Raja Kampung</div>
-            <div class="story-desc">Gembul bikin pizza cilok topping emas! Jadi raja makanan! 👑🍕</div>
-        </div>
-
-        <!-- CERITA 13 -->
-        <div class="story-card" onclick="playStory(13)">
-            <div class="chaos-level">CHAOS ⭐⭐⭐⭐⭐</div>
-            <div class="story-emoji">🧟‍♂️🎉</div>
-            <div class="story-title">Zombie Party</div>
-            <div class="story-desc">Zombie apokalips! Tapi mereka cuma mau joget sama Gembul! 🧟‍♂️🕺</div>
-        </div>
-
-        <!-- CERITA 14 -->
-        <div class="story-card" onclick="playStory(14)">
-            <div class="chaos-level">CHAOS ⭐⭐⭐</div>
-            <div class="story-emoji">🦁🥊</div>
-            <div class="story-title">Gembul vs Singa</div>
-            <div class="story-desc">Singa kabur ke kampung! Gembul: "Mau cilok atau joget?!" 🦁🍡</div>
-        </div>
-
-        <!-- CERITA 15 -->
-        <div class="story-card" onclick="playStory(15)">
-            <div class="chaos-level">CHAOS ⭐⭐⭐⭐⭐</div>
-            <div class="story-emoji">⛄❄️</div>
-            <div class="story-title">Salju Cilok Tropis</div>
-            <div class="story-desc">Salju pertama di kampung panas! Gembul bikin cilok es krim raksasa! ⛄🍦</div>
-        </div>
-    </div>
-
-    <div class="custom-section">
-        <h2 style="color: #d63031; margin-bottom: 20px;">✨ BUAT CERITA GEMBUL KAMU! ✨</h2>
-        <button class="btn-custom" onclick="createCustomStory()">🚀 GENERATE SEKARANG!</button>
-        <p style="margin-top: 15px; font-size: 1.2em;">Kirim ide → gembulverse@gmail.com</p>
-    </div>
-
-    <script>
-        function playStory(id) {
-            const stories = {
-                1: "🐔 Gembul lempar cilok ke kandang → AYAM RAKSASA DISCO! 🪩 Rumah Bu Minto ambruk total. Pak RT nangis: 'Kampung jadi Kolplay!' 💥😂",
-                2: "🎓 Gembul bawa speaker ke kelas → '1+1=CILOK!' Bu Guru goyang pinggul dangdut! Polisi dateng kira konser! 🚔🕺",
-                3: "💕 Dara makan telur misterius → MULUT KELUAR CILOK BANJIR! Kampung jadi kolplay cilok 3 hari! Manis pedes! 🌊🍡",
-                4: "👽 Telur dari UFO pecah → ALIEN DANGDUT TURUN! Gembul raja Cilokland! Semua joget non-stop! 🛸👑",
-                5: "👻 Pocong curi cilok jam 3 pagi! Gembul: 'Hantu joget dulu baru boleh makan!' Pocong jadi penutup acara! 😂👻",
-                6: "🐒 Monyet mafia curi pisang Bu RT! Gembul detektif cilok jebak mereka → pesta pisang cilok! 🕵️‍♂️🍌",
-                7: "🚀 Gembul lempar cilok keras → JADI ROKET! Mendarat planet cilok, alien kasih medali emas! 🌌🍡",
-                8: "⚽ Cilok Gembul jadi bola api! Gol spektakuler! Timnas juara Piala Dunia cilok! Messi telpon minta resep! 🏆⚽",
-                9: "🦖 T-Rex bangun lapar! Gembul kasih cilok gajah → jadi temen joget dangdut purba! 🦖🕺",
-                10: "🤖 Robot tetangga belajar breakdance dari Gembul! Battle robot vs anak kampung → joget damai! 🤖💃",
-                11: "🦄 Unicorn pelangi turun! 'Mau cilok pelangi!' Gembul bikin rainbow cilok topping! 🦄🌈",
-                12: "👑 Gembul ciptain pizza cilok emas! Jadi raja makanan kampung! McD mau beli resep! 🍕💰",
-                13: "🧟‍♂️ Zombie apokalips! Tapi mereka cuma mau joget + cilok. Gembul selamatkan dunia party! 🧟‍♂️🎉",
-                14: "🦁 Singa kabur ke kampung! Gembul: 'Mau cilok atau joget?' Singa pilih dua-duanya! 🦁🍡",
-                15: "⛄ Salju pertama di kampung tropis! Gembul bikin cilok es krim gunung! Santa telpon minta tolong! ❄️🍦"
-            };
-            alert(`🎉 CERITA #${id}\n\n${stories[id]}\n\nCHAOS LEVEL MAX! 😱😂\n\nTap card lain buat cerita baru!`);
-            
-            // Speech
-            const msg = new SpeechSynthesisUtterance(stories[id].substring(0, 100) + '...');
-            msg.lang = 'id-ID';
-            speechSynthesis.speak(msg);
-        }
-        
-        function createCustomStory() {
-            const name = prompt("Nama karakter gila kamu?");
-            const chaos = prompt("Petualangan apa? (contoh: vs zombie cilok)");
-            const level = prompt("Chaos level? (1-5 ⭐)");
-            alert(`✅ CERITA BARU DITAMBAH!\n\n👦 "${name}" vs "${chaos}"\n⭐${'⭐'.repeat(parseInt(level))}\n\nGembulverse makin gila! Share ke temen! 🚀✨`);
-        }
-    </script>
-</body>
-</html>
+    <div class="container">
+        <!-- HEADER BUKU -->
+        <div class
